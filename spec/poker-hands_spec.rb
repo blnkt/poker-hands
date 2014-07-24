@@ -25,6 +25,10 @@ describe :poker_hands do
   it('should take a sorted array of cards and check to see if a full house is present') do
     expect(poker_hands(["11C", "12H", "11D", "11S", "12H"])).to eq("full house")
   end
+
+  it('should take a sorted array of cards and check to see if a flush is present') do
+    expect(poker_hands(["11C", "12C", "11C", "11C", "12C"])).to eq("flush")
+  end
 end
 
 

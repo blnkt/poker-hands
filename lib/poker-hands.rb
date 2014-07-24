@@ -1,14 +1,18 @@
 def poker_hands(cards)
   cards_tonum = []
+  cards_tosuit = []
   pair_counter=0
   hand_name = ""
   0.upto(4) do |i|
      cards_tonum.push(cards[i].chop.to_i)
+     cards_tosuit.push(cards[i].slice(-1))
   end
   cards_tonum = cards_tonum.sort
   0.upto(3) do |i|
-    puts i
-    if ((cards_tonum[i].next == cards_tonum[i+1]) && (cards_tonum[i+1].next == cards_tonum[i+2]) && (cards_tonum[i+2].next == cards_tonum[i+3]) && (cards_tonum[i+3].next == cards_tonum[i+4]))
+    if (cards_tosuit[i] == cards_tosuit[i+1]) && (cards_tosuit[i] == cards_tosuit[i+2]) && (cards_tosuit[i] == cards_tosuit[i+3]) && (cards_tosuit[i] == cards_tosuit[i+4])
+      hand_name = "flush"
+      return hand_name
+    elsif ((cards_tonum[i].next == cards_tonum[i+1]) && (cards_tonum[i+1].next == cards_tonum[i+2]) && (cards_tonum[i+2].next == cards_tonum[i+3]) && (cards_tonum[i+3].next == cards_tonum[i+4]))
       hand_name = "straight"
       return hand_name
     elsif (cards_tonum[i] == cards_tonum[i+1]) && (cards_tonum[i] == cards_tonum[i+2]) && (cards_tonum[i] == cards_tonum[i+3])
