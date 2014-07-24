@@ -15,11 +15,15 @@ describe :poker_hands do
   end
 
   it('should take a sorted array of cards and check to see if four of a kind are present') do
-    expect(poker_hands(["12C", "12H", "12D", "12S", "13H"])).to eq("four of a kind")
+    expect(poker_hands(["12C", "12H", "12D", "12S", "10H"])).to eq("four of a kind")
   end
 
   it('should take a sorted array of cards and check to see if a straight is present') do
-    expect(poker_hands(["12C", "11H", "9D", "10S", "8H"])).to eq("straight")
+    expect(poker_hands(["11C", "12H", "9D", "10S", "8H"])).to eq("straight")
+  end
+
+  it('should take a sorted array of cards and check to see if a full house is present') do
+    expect(poker_hands(["11C", "12H", "11D", "11S", "12H"])).to eq("full house")
   end
 end
 
