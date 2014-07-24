@@ -29,6 +29,18 @@ describe :poker_hands do
   it('should take a sorted array of cards and check to see if a flush is present') do
     expect(poker_hands(["11C", "12C", "11C", "11C", "12C"])).to eq("flush")
   end
+
+  it('should take a sorted array of cards and check to see if a straight flush is present') do
+    expect(poker_hands(["11C", "12C", "10C", "8C", "9C"])).to eq("straight flush")
+  end
+
+  it('should take a sorted array of cards and check to see if a royal flush is present') do
+    expect(poker_hands(["11C", "12C", "10C", "13C", "14C"])).to eq("royal flush")
+  end
+
+  it('should take a sorted array of cards and check to see if only a high card is present') do
+    expect(poker_hands(["3S", "12D", "2C", "13C", "14D"])).to eq("high card")
+  end
 end
 
 
